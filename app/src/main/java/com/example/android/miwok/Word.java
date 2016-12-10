@@ -16,9 +16,33 @@ public class Word {
      */
     private String mMiwokTranslation;
 
+    /**
+     * Image resource id of the word.
+     */
+    private int mImageResourceId = NO_IMAGE_PROVIDED;
+
+    private static final int NO_IMAGE_PROVIDED = -1;
+
+    /**
+     * Create a new Word object.
+     * @param defaultTranslation is the word in teh language the user is using
+     * @param miwokTranslation is the word in the Miwok language.
+     */
     public Word(String defaultTranslation, String miwokTranslation) {
         this.mDefaultTranslation = defaultTranslation;
         this.mMiwokTranslation = miwokTranslation;
+    }
+
+    /**
+     * Create a new Word object.
+     * @param defaultTranslation is the word in teh language the user is using
+     * @param miwokTranslation is the word in the Miwok language.
+     * @param imageResourceId is the resource id for the image asset for the word.
+     */
+    public Word(String defaultTranslation, String miwokTranslation, int imageResourceId) {
+        this.mDefaultTranslation = defaultTranslation;
+        this.mMiwokTranslation = miwokTranslation;
+        this.mImageResourceId = imageResourceId;
     }
 
     /**
@@ -33,5 +57,18 @@ public class Word {
      */
     public String getMiwokTranslation() {
         return mMiwokTranslation;
+    }
+
+    /**
+     * Get the image resource id of the word.
+     */
+    public int getImageResourceId() { return mImageResourceId; }
+
+    /**
+     * Returns whether or not there is an image for this Word.
+     * @return
+     */
+    public boolean hasImage() {
+        return mImageResourceId != NO_IMAGE_PROVIDED;
     }
 }
